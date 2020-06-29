@@ -12,7 +12,7 @@ export const AddCategory = () => {
     setText('');
     setLocation('');
   }
-//console.log(text)
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <input className="form__input" type="text" required placeholder='enter the category, e.g. italian restaurant...' value={text} onChange={(e) => setText(e.target.value)} />

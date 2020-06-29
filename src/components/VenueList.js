@@ -6,32 +6,22 @@ import { VenueListModal } from './VenueListModal';
 
 export const VenueList = () => {
  
- const { data, isLoading, isError, getDetails } = useContext(FoursquareContext);
-// const [modalState, setModalState] = useState(false);
-// const [id, setId] = useState('');
+  const { data, isLoading, isError, getDetails } = useContext(FoursquareContext);
+
+  const [modalState, setModalState] = useState({});
+  const toggleModalState = (id) => {
+      setModalState(prevModalState => ({
+        ...prevModalState,
+        [id]: !prevModalState[id]
+      }));
+    }
   
-//  const toggleModalState = () => {
-//     setModalState(!modalState);
-//   }
-
-  
-
-
-const [modalState, setModalState] = useState({});
- const toggleModalState = (id) => {
-    setModalState(prevModalState => ({
-      ...prevModalState,
-      [id]: !prevModalState[id]
-    }));
+  const handleClick = (e) => {
+    e.preventDefault(); 
+    toggleModalState(e.target.value);
+    getDetails(e.target.value);
+      
   }
- 
- const handleClick = (e) => {
-   e.preventDefault(); 
-  //  console.log('ID',e.target.value);  
-  toggleModalState(e.target.value);
-  getDetails(e.target.value);
-    
- }
  
 
 

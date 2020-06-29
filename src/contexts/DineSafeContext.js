@@ -10,7 +10,7 @@ const DineSafeContextProvider = (props) => {
   const [data, setData] = useState(null);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  //const [results, setResults] = useState(null);
+  
   
 
   
@@ -45,10 +45,10 @@ const DineSafeContextProvider = (props) => {
         .then(response => response.text())
         .then((response) => {
             parseString(response, function (err, result) {
-                //console.log(result);
+          
                 if (!isCancelled) {
                 setData(result.DINESAFE_DATA.ESTABLISHMENT);
-                console.log(result.DINESAFE_DATA.ESTABLISHMENT[0]);
+                //console.log(result.DINESAFE_DATA.ESTABLISHMENT[0]);
                 console.log(err);
                 setIsLoading(false);
                 }
@@ -68,8 +68,8 @@ const DineSafeContextProvider = (props) => {
 
   
 
-  console.log(data);
-  //console.log(results, 'RESULTS');
+  //console.log(data);
+  
  
 
   return (

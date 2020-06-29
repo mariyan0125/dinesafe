@@ -1,4 +1,4 @@
-# Dine Safe and Fouresquare responsive web application
+## Dine Safe and Fouresquare responsive web application
 **built with**
 - React Hooks
 - React Context API

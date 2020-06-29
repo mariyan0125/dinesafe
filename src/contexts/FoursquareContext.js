@@ -64,10 +64,6 @@ export const FoursquareContextProvider = (props) => {
 
   
 
-  
-
-  
-
   const getDetails = async (venueId) => {
     setIsError(false);
     setIsLoading(true);
@@ -86,8 +82,8 @@ export const FoursquareContextProvider = (props) => {
   };
   
  
-console.log(data);
-console.log(details, 'DETAILS');
+// console.log(data);
+// console.log(details, 'DETAILS');
 
   return (
     <FoursquareContext.Provider value={{ data, isError, isLoading, getCategory, getDetails, details, generateImgUrl }}>

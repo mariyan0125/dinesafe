@@ -1,3 +1,13 @@
+# Dine Safe and Fouresquare responsive web application
+**built with**
+- React Hooks
+- React Context API
+- Foursquare API
+- Dine safe open data
+- SAAS
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

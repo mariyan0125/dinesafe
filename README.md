@@ -4,7 +4,7 @@
 - React Context API
 - Foursquare API
 - Dine safe open data
-- SAAS
+- Sass
 
 
 

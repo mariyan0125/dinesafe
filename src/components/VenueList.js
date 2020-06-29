@@ -7,7 +7,11 @@ import { VenueListModal } from './VenueListModal';
 export const VenueList = () => {
  
   const { data, isLoading, isError, getDetails } = useContext(FoursquareContext);
-
+  // const [modalState, setModalState] = useState(false);
+    
+  //  const toggleModalState = () => {
+  //     setModalState(!modalState);
+  //   }
   const [modalState, setModalState] = useState({});
   const toggleModalState = (id) => {
       setModalState(prevModalState => ({

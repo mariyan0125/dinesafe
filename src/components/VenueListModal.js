@@ -15,8 +15,8 @@ export const VenueListModal = ({ data, toggleModalState }) => {
     for(let i = 0; i < details.venue.price.tier; i++) { sign += '$'} 
   }
   const price = (details.venue.price !== undefined) ?  sign : 'No price info available';
-  const menu = (details.venue.menu !== undefined) ? <a className="btn-text" href={details.venue.menu.url}>View menu &rarr;</a> : '';
-  const url = (details.venue.url !== undefined) ? <a className="btn-text" href={details.venue.url}>Visit website &rarr;</a> : '';
+  const menu = (details.venue.menu !== undefined) ? <a className="btn-text"  target="_blank" href={details.venue.menu.url}>View menu &rarr;</a> : '';
+  const url = (details.venue.url !== undefined) ? <a className="btn-text" target="_blank" href={details.venue.url}>Visit website &rarr;</a> : '';
   const photo = (details.venue.bestPhoto !== undefined) ? generateImgUrl(details.venue.bestPhoto.prefix, details.venue.bestPhoto.suffix) : 'img/plate-small.png';
   
   const safety = (details.venue.name !== undefined && details.venue.location.address !== undefined) ? getResult(details.venue.name, details.venue.location.address) : 'Not available';

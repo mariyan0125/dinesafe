@@ -60,7 +60,7 @@ export const FoursquareContextProvider = (props) => {
     return () => {
       isCancelled = true;
     };
-  }, [category]);
+  }, [category, location]);
 
   
 

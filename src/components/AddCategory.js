@@ -16,7 +16,7 @@ export const AddCategory = () => {
   return (
     <form className="form" onSubmit={handleSubmit}>
       <input className="form__input" type="text" required placeholder='enter the category, e.g. italian restaurant...' value={text} onChange={(e) => setText(e.target.value)} />
-      <input className="form__input" type="text"  placeholder='enter the location, e.g. Toronto...' value={location} onChange={(e) => setLocation(e.target.value)} />
+      <input className="form__input" type="text" required placeholder='enter the location, e.g. Toronto...' value={location} onChange={(e) => setLocation(e.target.value)} />
       <input className='form__btn btn' type="submit" value='add'/>
     </form>
   )

@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+/**********************
+//COLORS
+***********************/
+$color-primary: #a4ccb9;
+$color-primary-dark: #8ec0a8;
+$color-grey-dark: #777;
+$color-grey-light: #ddd;
+
+$color-white: #fff;
+$color-black: #000;
+/**********************
+//MIXINS
+***********************/
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+   @media only screen and (max-width: 37.5em) { @content }; //600px
+  }
+  @if $breakpoint == tab-port {
+   @media only screen and (max-width: 56.25em) { @content }; //900px
+  }
+  @if $breakpoint == tab-land {
+   @media only screen and (max-width: 75em) { @content }; //1200px
+  }
+  @if $breakpoint == big-desktop {
+   @media only screen and (min-width: 112.5em) { @content }; //1800px
+  }
+ }
+/**********************
+//GENERAL
+***********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  }
+  
+html {
+  font-size: 62.5%; 
+
+  @include respond(tab-land) { //width < 1200px?
+    font-size: 56.25%; //1rem = 9px, 9/16 = 56.25%
+  }
+
+  @include respond(tab-port) { //width < 900px?
+    font-size: 50%;// 1rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12px, 12/16 = 75%
+  }
+  }
+
+body {
+  box-sizing: border-box;
+  color: $color-grey-light;
+  height: 100vh;
+  font-family: 'Lato', sans-serif; 
+  }
+
+a {
+  text-decoration: none;
+  }
+
+.App {
+  text-align: center;
+  }
+
+/**********************
+//TYPOGRAPHY
+***********************/
+.heading-primary {
+  font-size: 5rem;
+  letter-spacing: 4rem;
+  text-transform: uppercase;
+  padding-top: 4rem;
+}
+.heading-secondary {
+  font-size: 3rem;
+  letter-spacing: 2rem;
+  text-transform: uppercase;
+  padding-top: 2rem;
+}
+.heading-tertiary {
+  font-size: 2.5rem;
+  color: $color-primary-dark;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .3rem;
+  margin: 1rem;
+}
+
+/**********************
+//HEADER
+***********************/
+  .header {
+    color: $color-white;
+    background-image: linear-gradient(to right bottom, $color-primary-dark, $color-primary);
+    clip-path: circle(85rem at 50% -100%);
+
+    &__img {
+      width: 30rem;
+      margin: 0 auto 0 auto;
+
+      img {
+        width: 100%;
+        transform: rotateZ(-175deg);
+        transition: all .2s ease-in-out;
+      }
+
+    }
+  }
+
+/**********************
+//ADD CATEGORY FORM
+***********************/
+.form {
+  padding: 1rem 2rem;
+  
+  &__input {
+    width: 35%;
+    height: 4rem;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    padding: 1.5rem 2rem;
+    font-size: 1.8rem;
+    color: $color-primary-dark;
+    border-radius: 10rem;
+    border: 1px solid $color-grey-light;
+    box-shadow: inset -.3rem .3rem .8rem $color-grey-light;
+
+    @include respond(phone) {
+      width: 100%;
+    }
+    
+  
+    &:focus, &:active {
+      outline: none;
+      border: 1px solid $color-primary;
+    }
+  }
+
+  &__btn {
+    padding: .7rem 3rem;
+    font-family: inherit;
+    font-size: 1.8rem;
+    color: $color-primary;
+    background-color: $color-white;
+    cursor: pointer; 
+    border-radius: 10rem;
+    border: 1px solid $color-primary;
+    transition: all .3s ease-in;
+
+    &.btn {
+      @include respond(phone) {
+      width: 100%;
+    }
+  }
+    
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+}
+
+/**********************
+//VENUE LIST
+***********************/
+.venue-items {
+  color: $color-grey-dark;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+ 
+  &__container {
+    flex: 0 1 35rem;
+  }
+
+  &__item {  
+    height: 30rem;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+    background-color: $color-white;
+    transition: transform .3s;
+    backface-visibility: hidden;
+    position: relative;
+   
+
+    &:hover{
+      transform: translateY(-1.2rem) scale(1.03);
+     }
+  }
+  &__location {
+    letter-spacing: .2rem;
+  }
+  &__category { 
+    margin: 2rem;
+    span {
+      display: inline-block;
+      letter-spacing: .1rem;
+      font-size: 1.8rem;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: 50;
+    left: 50;
+    bottom: 3%;
+    transform: translate(-50%, -50%);
+    margin-left: 0;
+  }
+}
+
+/**********************
+//MODAL
+***********************/
+.modal {
+  background-color: #fff;
+  position: relative;
+  
+  &__close-btn {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    font-size: 2rem;
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: .3rem;
+    font-weight: bolder;
+    padding: .3rem 1rem;
+    cursor: pointer;
+  }
+
+  &__img {
+    height: 20rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+
+    @include respond(phone) {
+      width: 35rem;
+    }
+
+    img{
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    padding: 0 1.5rem 1.5rem;
+    
+    &-menu, &-venue { 
+      display: inline-block; 
+    }
+    &-menu { 
+      margin-right: 30%;
+
+      @include respond(phone) {
+        margin-right: 0;
+        display: block;
+        margin-bottom: 1rem;
+        }
+    }
+    &-price {
+      font-size: 1.8rem;
+      margin: 1rem;
+    }
+    &-title{
+      font-size: 3.2rem;
+    }
+  }
+  &__pass {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    &-details { padding: 0 2rem;}
+    &-title {
+      font-size: 2rem;
+      color: $color-primary;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .3rem;
+      margin: 1rem;
+    }
+    &-item {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  
+}
+
+.btn-text {
+  &:link, &:visited {
+    font-size: 1.8rem;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    transition: all .2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    transform: translateY(-2px);
+  }
+
+  &:active{
+    box-shadow: 0 1rem 1rem rgba($color-black, .15);
+    transform: translateY(0);
+  }
+}
+
+.modal-background {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color-black, .8);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-showing-true {
+  opacity: 1;
+}
+
+/**********************
+//STAR RATING 
+***********************/
+.stars-outer {
+  position: relative;
+  display: inline-block;
+
+}
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0%;  
+}
+
+.footer {
+  text-align: center;
+  font-size: 1.6rem;
+  padding: 3rem;
+  background-color: $color-primary-dark;
+  color: $color-white;
+}

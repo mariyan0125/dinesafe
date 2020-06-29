@@ -7,7 +7,7 @@ export const StarRating = ({rating}) => {
   
   const size = rating / 2 / totalRating * 100;
   const sizeRounded = Math.round(size / 10) * 10 +'%';
-  console.log(rating,'RAITING',sizeRounded, 'SIZE ROUNDED')
+  
   
   
   return (

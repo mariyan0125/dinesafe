@@ -29,7 +29,7 @@ export const VenueList = () => {
     isLoading ? (<div>... loading</div>) :
     (<div className='venue-items'>
       <div>{isError ? '...something went wrong' : ''}</div>
-      {console.log(data[0].items)}
+     
       { data[0].items.map(data => {
         return (
           <div className='venue-items__container' key={data.venue.id}>
@@ -47,7 +47,6 @@ export const VenueList = () => {
           </div>
         );
       })}
-      {console.log('MODAL STATE', modalState)}
     </div>)
   )
 }
